@@ -104,7 +104,7 @@ strong {
   z-index: 100;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
 }
-.sticky .section-hero{
+.sticky .section-hero {
   margin-top: 9.6rem;
 }
 .btn,
@@ -254,4 +254,19 @@ strong {
 
 .center-text {
   text-align: center;
+}
+
+.hidden {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  transition: opacity 0.3s, height 0.3s, width 0.3s;
+}
+
+.visible {
+  opacity: 1;
+  width: auto;
+  height: auto; /* or a specific height if you know it */
+  transition: opacity 0.3s, height 0.3s, width 0.3s;
 }
