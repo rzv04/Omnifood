@@ -6,3 +6,8 @@
 
 A fully responsive landing page for a fictional AI food company, Omnifood.
 Additionally, a hosted version of this page (on Netlify) can be accessed [here](https://main--omnifood1222.netlify.app/).
+
+## Website Features
+
+- Smooth Scrolling
+- Form uploading to Netlify
