@@ -92,19 +92,18 @@ function handleFAQButtons() {
   const questionsList = document.querySelector(".questions-list");
   questionsList.addEventListener("click", function (e) {
     const target = e.target;
-    const targetAnswer = target.closest(".question").querySelector(".answer");
+    const answerWrapper = target
+      .closest(".question")
+      .querySelector(".answer-wrapper");
     if (target.matches(".chevron")) {
       // Rotate chevron
       target.classList.toggle("rotate-up");
 
-      // Get calculated height of the answer
-      const targetAnswerHeight =
-        getComputedStyle(targetAnswer).getPropertyValue("height");
-      console.log(targetAnswerHeight);
+      answerWrapper.classList.toggle("open");
 
       // Toggle answer with .3s transition
-      targetAnswer.classList.toggle("hidden");
-      targetAnswer.classList.toggle("visible");
+      // targetAnswer.classList.toggle("hidden");
+      // targetAnswer.classList.toggle("visible");
     }
   });
 }

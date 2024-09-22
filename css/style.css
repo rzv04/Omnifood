@@ -644,22 +644,29 @@ Letter spacing:0.75px, -0.5px, 1.2px
 }
 
 .question {
+  /* Container transition hack:Grid display from 0 to 1 rows */
+
   border: 2px solid #fdf2e9;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   list-style: none;
   padding: 1.6rem;
   border-radius: 9px;
 
-  max-height: 500px;
-  /* won't work */
-  /* height: auto; */
-  transition: all 5s;
+  grid-template-rows: 0fr;
+
+  /*IN DEV chrome versions only: height: calc-size(auto); */
+}
+.answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
 }
 
-.question p {
+.answer {
   font-size: 1.8rem;
   line-height: 1.6;
   margin-top: 2.4rem;
+  overflow: hidden;
 }
 
 .question-header-container {

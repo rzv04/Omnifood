@@ -259,19 +259,34 @@ strong {
 .hidden {
   opacity: 0;
   height: 0;
-  width: 0;
+  /* width: 0; */
   overflow: hidden;
   transition: opacity 0.3s, height 0.3s, width 0.3s;
 }
 
 .visible {
   opacity: 1;
-  width: auto;
+  /* width: auto; */
   height: auto; /* or a specific height if you know it */
   transition: opacity 0.3s, height 0.3s, width 0.3s;
+  animation: slideDown 0.3s ease-out;
+}
+
+.open {
+  grid-template-rows: 1fr;
 }
 
 .rotate-up {
   transform: rotate(180deg);
 }
 
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
