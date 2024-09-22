@@ -1,3 +1,7 @@
+// Load FAQ answers then immediately hide to calculate the height
+// Wouldn't work if display dimensions change
+
+// Display current year in the footer
 const yearEl = document.querySelector(".year");
 const year = new Date().getFullYear();
 yearEl.textContent = year;
@@ -70,16 +74,39 @@ function checkFlexGap() {
 }
 checkFlexGap();
 
-// Toggle FAQ section answers
-const questionsList = document.querySelector(".questions-list");
-questionsList.addEventListener("click", function (e) {
-  const clickParentTarget = e.target.parentNode;
-  if (clickParentTarget.matches(".faq-button")) {
-    const parentQuestion = clickParentTarget.parentNode.parentNode;
-    const questionParagraph = parentQuestion.querySelector("p");
-    const [chevronUp, chevronDown] = clickParentTarget.children;
-    chevronUp.classList.toggle("hidden");
-    chevronDown.classList.toggle("hidden");
-    questionParagraph.classList.toggle("hidden");
-  }
-});
+// // Toggle FAQ section answers
+// const questionsList = document.querySelector(".questions-list");
+// questionsList.addEventListener("click", function (e) {
+//   const clickParentTarget = e.target.parentNode;
+//   if (clickParentTarget.matches(".faq-button")) {
+//     const parentQuestion = clickParentTarget.parentNode.parentNode;
+//     const questionParagraph = parentQuestion.querySelector("p");
+//     const [chevronUp, chevronDown] = clickParentTarget.children;
+//     chevronUp.classList.toggle("hidden");
+//     chevronDown.classList.toggle("hidden");
+//     questionParagraph.classList.toggle("hidden");
+//   }
+// });
+
+function handleFAQButtons() {
+  const questionsList = document.querySelector(".questions-list");
+  questionsList.addEventListener("click", function (e) {
+    const target = e.target;
+    const targetAnswer = target.closest(".question").querySelector(".answer");
+    if (target.matches(".chevron")) {
+      // Rotate chevron
+      target.classList.toggle("rotate-up");
+
+      // Get calculated height of the answer
+      const targetAnswerHeight =
+        getComputedStyle(targetAnswer).getPropertyValue("height");
+      console.log(targetAnswerHeight);
+
+      // Toggle answer with .3s transition
+      targetAnswer.classList.toggle("hidden");
+      targetAnswer.classList.toggle("visible");
+    }
+  });
+}
+
+handleFAQButtons();

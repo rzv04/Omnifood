@@ -649,6 +649,11 @@ Letter spacing:0.75px, -0.5px, 1.2px
   list-style: none;
   padding: 1.6rem;
   border-radius: 9px;
+
+  max-height: 500px;
+  /* won't work */
+  /* height: auto; */
+  transition: all 5s;
 }
 
 .question p {
@@ -665,11 +670,12 @@ Letter spacing:0.75px, -0.5px, 1.2px
 .question-heading {
   margin-bottom: 0 !important;
 }
-.chevron-down,
-.chevron-up {
+
+.chevron {
   height: 2.4rem;
   width: 2.4rem;
   cursor: pointer;
+  transition: all 0.3s;
 }
 .faq-introduction-box {
   display: flex;

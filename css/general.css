@@ -270,3 +270,8 @@ strong {
   height: auto; /* or a specific height if you know it */
   transition: opacity 0.3s, height 0.3s, width 0.3s;
 }
+
+.rotate-up {
+  transform: rotate(180deg);
+}
+
