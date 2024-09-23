@@ -11,4 +11,3 @@ Additionally, a hosted version of this page (on Netlify) can be accessed [here](
 
 - Smooth Scrolling
 - Form uploading to Netlify
-    

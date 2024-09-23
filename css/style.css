@@ -45,6 +45,13 @@ Letter spacing:0.75px, -0.5px, 1.2px
 .logo {
   height: 2.2rem;
 }
+.scroll-progress-container {
+  /* display: none; */
+  position: sticky;
+  background-color: #e67e22;
+  z-index: 100;
+  width: 0;
+}
 
 /* ************** */
 /* Navigation */

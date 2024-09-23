@@ -8,7 +8,9 @@ yearEl.textContent = year;
 
 const btnNavEl = document.querySelector(".btn-mobile-nav");
 const headerEl = document.querySelector(".header");
-
+const scrollProgressContainer = document.querySelector(
+  ".scroll-progress-container"
+);
 btnNavEl.addEventListener("click", function () {
   headerEl.classList.toggle("nav-open");
 });
@@ -42,8 +44,17 @@ const obs = new IntersectionObserver(
     // console.log(ent);
     if (ent.isIntersecting === false) {
       document.body.classList.add("sticky");
+      // enable height and calculate width
+      scrollProgressContainer.style.height = "5px";
+      let documentHeight = document.documentElement.scrollHeight;
+      window.onscroll = function () {
+        let percentageScrolled = (window.scrollY / documentHeight) * 100;
+        scrollProgressContainer.style.width = percentageScrolled + "%";
+      };
     } else {
       document.body.classList.remove("sticky");
+      // reset height to 0
+      scrollProgressContainer.style.height = "0";
     }
   },
   {
@@ -109,19 +120,3 @@ function handleFAQButtons() {
 }
 
 handleFAQButtons();
-
-// function rand() {
-//   let x = Math.random() * 10;
-//   return Math.round(x);
-// }
-
-// let promise = new Promise(function (resolve, reject) {
-//   setTimeout(() => {
-//     const x = rand();
-//     console.log(x);
-//     if (x > 5) resolve(200);
-//     else reject(new Error());
-//   }, 3000);
-// });
-
-// promise.then((result) => console.log(promise)).catch((err) => console.log(err));
