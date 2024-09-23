@@ -47,8 +47,10 @@ const obs = new IntersectionObserver(
       // enable height and calculate width
       scrollProgressContainer.style.height = "5px";
       let documentHeight = document.documentElement.scrollHeight;
+      let viewportHeight = document.documentElement.clientHeight;
       window.onscroll = function () {
-        let percentageScrolled = (window.scrollY / documentHeight) * 100;
+        let percentageScrolled =
+          (window.scrollY / (documentHeight - viewportHeight)) * 100;
         scrollProgressContainer.style.width = percentageScrolled + "%";
       };
     } else {
