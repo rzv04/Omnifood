@@ -109,3 +109,19 @@ function handleFAQButtons() {
 }
 
 handleFAQButtons();
+
+// function rand() {
+//   let x = Math.random() * 10;
+//   return Math.round(x);
+// }
+
+// let promise = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     const x = rand();
+//     console.log(x);
+//     if (x > 5) resolve(200);
+//     else reject(new Error());
+//   }, 3000);
+// });
+
+// promise.then((result) => console.log(promise)).catch((err) => console.log(err));
