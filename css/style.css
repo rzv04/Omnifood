@@ -177,6 +177,7 @@ Letter spacing:0.75px, -0.5px, 1.2px
 /* ************ */
 .section-featured {
   padding: 4.8rem 0 3.2rem 0;
+  position: relative;
 }
 
 .heading-featured-in {
@@ -203,12 +204,10 @@ Letter spacing:0.75px, -0.5px, 1.2px
   );
 }
 .logos div {
-
   height: 6.4rem;
   display: inline-block;
   display: flex;
   align-items: center;
-
 }
 .logos div {
   animation: 20s linear 1s infinite infinite-slide-left;
@@ -231,7 +230,7 @@ Letter spacing:0.75px, -0.5px, 1.2px
 
 .logos div {
   position: absolute;
-  right: 0;
+  /* right: calc(6.4rem * 5); */
 }
 
 .logos div:nth-child(1) {
@@ -256,20 +255,29 @@ Letter spacing:0.75px, -0.5px, 1.2px
 /* ************* */
 /* How Section */
 /* ************* */
-
+/* .how-container {
+  animation: slideDown 1s ease 0s forwards;
+} */
 .section-how {
   padding: 9.6rem 0;
   /* background-color: gray; */
 }
-
+.steps-container {
+  grid-template-rows: repeat(3, 1fr);
+}
+.step-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 .step-img {
-  width: 35%;
+  width: 32%;
 }
 .step-img-box {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* flex-shrink: 0; */
 }
 .step-number {
   font-size: 9.6rem;
@@ -779,7 +787,7 @@ Letter spacing:0.75px, -0.5px, 1.2px
   animation: scale-in-right ease-in-out 0.8s forwards;
 }
 
-.step-1 {
+/* .step-1 {
   animation: scale-in-right ease-in-out 0.8s forwards;
 }
 .step-2 {
@@ -787,4 +795,4 @@ Letter spacing:0.75px, -0.5px, 1.2px
 }
 .step-3 {
   animation: scale-in-right ease-in-out 0.8s forwards;
-}
+} */

@@ -1,4 +1,3 @@
-
 // Display current year in the footer
 const yearEl = document.querySelector(".year");
 const year = new Date().getFullYear();
@@ -101,3 +100,56 @@ function handleFAQButtons() {
 }
 
 handleFAQButtons();
+
+// Select main container and its steps children
+const stepsContainer = document.querySelector(".steps-container");
+const stepContainers = stepsContainer.children;
+const howContainer = document.querySelector(".how-container");
+const mealContainer = document.querySelector(".meal-subheading-container");
+const subHeadingContainer = document.querySelector(
+  ".pricing-subheading-container"
+);
+const testimonialImgs = document.querySelectorAll(".testimonial-img");
+// console.log(howContainer);
+// Describe observer behavior: play animation once in viewport
+// Define the observer callback function
+function observerCallback(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const target = entry.target;
+      if (target.matches(".step-1") || target.matches(".step-3")) {
+        target.style.animation = "scale-in-right ease-in-out 0.8s forwards";
+      } else if (target.matches(".step-2")) {
+        target.style.animation = "scale-in-left ease-in-out 0.8s forwards";
+      } else if (
+        target.matches(".how-container") ||
+        target.matches(".meal-subheading-container") ||
+        target.matches(".pricing-subheading-container")
+      ) {
+        target.style.animation = "slideDown 1s ease 0s forwards";
+      } else if (target.matches(".testimonial-img")) {
+        target.style.animation = "slideDown 1s ease 0s forwards";
+      }
+
+      observer.unobserve(target);
+    }
+  });
+}
+
+// Create a single observer object
+const observer = new IntersectionObserver(observerCallback, {
+  root: null,
+  rootMargin: "200px",
+  threshold: 0,
+});
+
+// Observe step containers
+for (let stepContainer of stepContainers) {
+  observer.observe(stepContainer);
+}
+
+// Observe how container
+observer.observe(howContainer);
+observer.observe(subHeadingContainer);
+observer.observe(mealContainer);
+for (let testimonialImg of testimonialImgs) observer.observe(testimonialImg);
