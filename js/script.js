@@ -1,5 +1,3 @@
-// Load FAQ answers then immediately hide to calculate the height
-// Wouldn't work if display dimensions change
 
 // Display current year in the footer
 const yearEl = document.querySelector(".year");
@@ -41,7 +39,6 @@ const sectionHeroEl = document.querySelector(".section-hero");
 const obs = new IntersectionObserver(
   function (entries) {
     const ent = entries[0];
-    // console.log(ent);
     if (ent.isIntersecting === false) {
       document.body.classList.add("sticky");
       // enable height and calculate width
@@ -81,27 +78,13 @@ function checkFlexGap() {
   document.body.appendChild(flex);
   var isSupported = flex.scrollHeight === 1;
   flex.parentNode.removeChild(flex);
-  //   console.log(isSupported);
 
   if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
 checkFlexGap();
 
-// // Toggle FAQ section answers
-// const questionsList = document.querySelector(".questions-list");
-// questionsList.addEventListener("click", function (e) {
-//   const clickParentTarget = e.target.parentNode;
-//   if (clickParentTarget.matches(".faq-button")) {
-//     const parentQuestion = clickParentTarget.parentNode.parentNode;
-//     const questionParagraph = parentQuestion.querySelector("p");
-//     const [chevronUp, chevronDown] = clickParentTarget.children;
-//     chevronUp.classList.toggle("hidden");
-//     chevronDown.classList.toggle("hidden");
-//     questionParagraph.classList.toggle("hidden");
-//   }
-// });
-
 function handleFAQButtons() {
+  // Toggle FAQ section answers
   const questionsList = document.querySelector(".questions-list");
   questionsList.addEventListener("click", function (e) {
     const target = e.target;
@@ -113,10 +96,6 @@ function handleFAQButtons() {
       target.classList.toggle("rotate-up");
 
       answerWrapper.classList.toggle("open");
-
-      // Toggle answer with .3s transition
-      // targetAnswer.classList.toggle("hidden");
-      // targetAnswer.classList.toggle("visible");
     }
   });
 }

@@ -270,8 +270,7 @@ strong {
 
 .visible {
   opacity: 1;
-  /* width: auto; */
-  height: auto; /* or a specific height if you know it */
+  height: auto;
   transition: opacity 0.3s, height 0.3s, width 0.3s;
   animation: slideDown 0.3s ease-out;
 }
@@ -292,5 +291,52 @@ strong {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes scale-out-right {
+  0% {
+    transform: translateX(0);
+    /* width: 100%; */
+    opacity: 1;
+  }
+  100% {
+    /* border-radius: 50%; */
+    /* width: 0%; */
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

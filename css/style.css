@@ -44,6 +44,7 @@ Letter spacing:0.75px, -0.5px, 1.2px
 }
 .logo {
   height: 2.2rem;
+  animation: scale-in-left ease-in-out 1s forwards;
 }
 .scroll-progress-container {
   /* display: none; */
@@ -61,6 +62,7 @@ Letter spacing:0.75px, -0.5px, 1.2px
   display: flex;
   gap: 4.8rem;
   align-items: center;
+  animation: scale-in-right ease-in-out 1s forwards;
 }
 .main-nav-link:link,
 .main-nav-link:visited {
@@ -577,6 +579,10 @@ Letter spacing:0.75px, -0.5px, 1.2px
   box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.519);
 }
 
+#select-where {
+  cursor: pointer;
+}
+
 /* Footer */
 .footer {
   padding: 12.8rem 0;
@@ -716,4 +722,21 @@ Letter spacing:0.75px, -0.5px, 1.2px
 }
 .faq-introduction-box .subheading {
   margin-bottom: -4rem;
+}
+
+.hero-text-box {
+  animation: scale-in-left ease-in-out 0.8s forwards;
+}
+.hero-img-box {
+  animation: scale-in-right ease-in-out 0.8s forwards;
+}
+
+.step-1 {
+  animation: scale-in-right ease-in-out 0.8s forwards;
+}
+.step-2 {
+  animation: scale-in-left ease-in-out 0.8s forwards;
+}
+.step-3 {
+  animation: scale-in-right ease-in-out 0.8s forwards;
 }
